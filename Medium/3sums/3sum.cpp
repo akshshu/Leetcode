@@ -17,7 +17,8 @@ public:
             int right = nums.size() - 1;
             while (left < right)
             {
-                if ((nums[left] + nums[right]) == reqSum)
+                int sum=nums[left] + nums[right];
+                if ( sum== reqSum)
                 {
                     ans.push_back({nums[i], nums[left], nums[right]});
                     while (left < right && nums[left] == nums[left + 1])
@@ -27,7 +28,7 @@ public:
                     left++;
                     right--;
                 }
-                else if ((nums[left] + nums[right]) > reqSum)
+                else if (sum > reqSum)
                     right--;
                 else
                     left++;
