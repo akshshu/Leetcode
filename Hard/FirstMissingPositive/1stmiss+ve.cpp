@@ -34,6 +34,7 @@ public:
 int main()
 {
     Solution s;
-    auto ans = s.func();
+    vector<int> nums={1,-1,2,0,4};
+    auto ans = s.firstMissingPositive(nums);
     return 0;
 }
