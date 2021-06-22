@@ -1,0 +1,61 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
+{
+public:
+    void setZeroes(vector<vector<int>> &matrix)
+    {
+        bool rt = false, rc = false;
+        for (int j = 0; j < matrix[0].size(); j++)
+        {
+            if (matrix[0][j] == 0)
+            {
+                rt = true;
+                break;
+            }
+        }
+        for (int j = 0; j < matrix.size(); j++)
+        {
+            if (matrix[j][0] == 0)
+            {
+                rc = true;
+                break;
+            }
+        }
+        for (int i = 0; i < matrix.size(); i++)
+        {
+            for (int j = 0; j < matrix[0].size(); j++)
+            {
+                if (matrix[i][j] == 0)
+                {
+                    matrix[0][j] = 0;
+                    matrix[i][0] = 0;
+                }
+            }
+        }
+        for (int i = 1; i < matrix.size(); i++)
+            if (matrix[i][0] == 0)
+                for (int j = 0; j < matrix[0].size(); j++)
+                    matrix[i][j] = 0;
+
+        for (int j = 1; j < matrix[0].size(); j++)
+            if (matrix[0][j] == 0)
+                for (int i = 0; i < matrix.size(); i++)
+                    matrix[i][j] = 0;
+
+        if (rt)
+            for (int j = 0; j < matrix[0].size(); j++)
+                matrix[0][j] = 0;
+
+        if (rc)
+            for (int j = 0; j < matrix.size(); j++)
+                matrix[j][0] = 0;
+    }
+};
+int main()
+{
+    Solution s;
+    auto ans = s.func();
+    return 0;
+}
